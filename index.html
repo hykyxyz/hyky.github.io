@@ -23,7 +23,7 @@
         
         body {
             background-color: var(--primary-color);
-            color: blue;
+            color: blue; /* This might be a placeholder, as other text colors are defined */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -74,6 +74,18 @@
             align-items: center;
             gap: 1rem;
             opacity: 0;
+        }
+
+        /* Styles for the logo and icon images */
+        .header-icon {
+            height: 30px; /* Adjust as needed */
+            width: auto;
+            border-radius: 4px; /* Rounded corners for the icon */
+        }
+
+        .header-logo {
+            height: 30px; /* Adjust as needed */
+            width: auto;
         }
         
         .logo {
@@ -328,8 +340,11 @@
 <body>
     <header id="main-header">
         <div class="logo-container">
-            <div class="logo spinner">—</div>
-            <div class="site-name">HYKY</div>
+            <!-- Icon for the header -->
+            <img src="icon" alt="Icon" class="header-icon">
+            <!-- Logo for the header -->
+            <img src="895fbb36-86fe-4529-ba10-08529a053691.png" alt="HYKY Logo" class="header-logo">
+            <div class="site-name"></div> <!-- site-name is now part of the logo img -->
         </div>
         
         <div class="nav-controls" id="nav-controls">
@@ -413,14 +428,18 @@
             header.style.opacity = '1';
             
             // Logo and site name animation
-            const logo = document.querySelector('.logo');
-            const siteName = document.querySelector('.site-name');
+            const headerIcon = document.querySelector('.header-icon');
+            const headerLogo = document.querySelector('.header-logo');
             
             setTimeout(() => {
-                logo.style.opacity = '1';
-                logo.style.transform = 'translateY(0)';
-                siteName.style.opacity = '1';
-                siteName.style.transform = 'translateY(0)';
+                if (headerIcon) {
+                    headerIcon.style.opacity = '1';
+                    headerIcon.style.transform = 'translateY(0)';
+                }
+                if (headerLogo) {
+                    headerLogo.style.opacity = '1';
+                    headerLogo.style.transform = 'translateY(0)';
+                }
             }, 200);
             
             // Nav controls animation
